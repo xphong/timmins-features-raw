@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TimminsDB">
+  <DataContextMoniker Name="/TimminsDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7de75d10-bbf6-4c2a-bbfb-a32cdff59b8a" absoluteBounds="2.25, 4, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TimminsDBDataContext/tbl_jobposting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="569fba4d-893d-4cf1-9f94-602c7a5cdafa" absoluteBounds="2.265, 4.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c562a54-f9e7-49ef-8a4d-117d32c8faeb" absoluteBounds="6.25, 4, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TimminsDBDataContext/tbl_visitor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="361ca8d1-975f-48b6-bc05-0555de770a9c" absoluteBounds="6.265, 4.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b540bc7a-8cd3-4112-ac92-23e1c1415f98" absoluteBounds="1.125, 0.75, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/TimminsDBDataContext/tbl_application" />
+      <nestedChildShapes>
+        <elementListCompartment Id="747f11bf-11a2-4dc8-a552-e8f625e372f6" absoluteBounds="1.1400000000000001, 1.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.6875 : 4); (2.6875 : 3.67470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TimminsDBDataContext/tbl_jobposting/tbl_jobposting_tbl_application" />
+      <nodes>
+        <classShapeMoniker Id="7de75d10-bbf6-4c2a-bbfb-a32cdff59b8a" />
+        <classShapeMoniker Id="b540bc7a-8cd3-4112-ac92-23e1c1415f98" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="96baf660-6d8e-4c9b-8ec6-45bd822b8438" absoluteBounds="4.5, 1.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TimminsDBDataContext/tbl_careeralert" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebcdfda2-c18b-451f-b755-e481894bbcbd" absoluteBounds="4.515, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="timmins" Class="TimminsDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=snare.arvixe.com;Initial Catalog=timmins;User ID=timmins" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="timminsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="timmins.tbl_jobpostings" Member="tbl_jobpostings">
+    <Type Name="tbl_jobposting">
+      <Column Name="jobposting_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="date_posted" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="hours" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="department" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="qualifications" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="salary" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="deadline" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_jobposting_tbl_application" Member="tbl_applications" ThisKey="jobposting_id" OtherKey="jobposting_id" Type="tbl_application" />
+    </Type>
+  </Table>
+  <Table Name="timmins.tbl_visitors" Member="tbl_visitors">
+    <Type Name="tbl_visitor">
+      <Column Name="visitor_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="visitors" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="visit_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="duration" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="timmins.tbl_applications" Member="tbl_applications">
+    <Type Name="tbl_application">
+      <Column Name="application_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobposting_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="postalcode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phonenumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="resume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="coverletter" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="app_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_jobposting_tbl_application" Member="tbl_jobposting" ThisKey="jobposting_id" OtherKey="jobposting_id" Type="tbl_jobposting" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="timmins.tbl_careeralert" Member="tbl_careeralerts">
+    <Type Name="tbl_careeralert">
+      <Column Name="careeralert_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="department" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="resume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="timmins.careeralertInsert" Method="careeralertInsert">
+    <Parameter Name="parName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parDepartment" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parEmail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parResume" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="timmins.careeralert" Method="careeralert">
+    <ElementType Name="careeralertResult">
+      <Column Name="careeralert_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="department" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="resume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="timmins.careeralertByID" Method="careeralertByID">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="careeralertByIDResult">
+      <Column Name="careeralert_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="department" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="resume" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="timmins.careeralertDelete" Method="careeralertDelete">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="timmins.careeralertChangeStatus" Method="careeralertChangeStatus">
+    <Parameter Name="parID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="parStatus" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
